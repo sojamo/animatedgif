@@ -25,6 +25,8 @@
 
 package sojamo.animatedgif;
 
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -58,9 +60,12 @@ import processing.event.KeyEvent;
 	private boolean isRecording = false;
 	private boolean isKeyControl = true;
 	private boolean isLoop = true;
+	private boolean isTimeStamp = true;
 	private int duration = -1;
 	private int millisBetweenFrames = 200;
 	private String createBy = "animatedgif";
+	private float scale = 1.0f;
+
 	/* timer fields */
 
 	private int n;
@@ -84,7 +89,9 @@ import processing.event.KeyEvent;
 		m.put( "isRecording" , isRecording );
 		m.put( "isKeyControl" , isKeyControl );
 		m.put( "isLoop" , isLoop );
+		m.put( "isTimeStamp" , isTimeStamp );
 		m.put( "duration" , duration );
+		m.put( "scale" , scale );
 		m.put( "numberOfFrames" , numberOfFrames );
 		m.put( "millisBetweenFrames" , millisBetweenFrames );
 		m.put( "timeStampPattern" , timeStampPattern );
@@ -154,6 +161,15 @@ import processing.event.KeyEvent;
 
 	public boolean isRecording( ) {
 		return isRecording;
+	}
+
+	public GifRecorder useTimeStamp( boolean theValue ) {
+		isTimeStamp = theValue;
+		return this;
+	}
+
+	public boolean isTimeStamp( ) {
+		return isTimeStamp;
 	}
 
 	public GifRecorder stop( ) {
@@ -259,13 +275,22 @@ import processing.event.KeyEvent;
 	}
 
 	public GifRecorder save( ) {
-		if ( outFile.endsWith( ".gif" ) ) {
+		if ( outFile.endsWith( ".gif" ) && isTimeStamp ) {
 			String s = outFile.substring( 0 , outFile.length( ) - 4 );
 			s += "_" + getTimeStamp( ) + ".gif";
 			return saveAs( s );
 		}
 		// TODO fixme
-		return null;
+		return saveAs( outFile );
+	}
+
+	public GifRecorder setScale( float theValue ) {
+		scale = theValue;
+		return this;
+	}
+
+	public float getScale( ) {
+		return scale;
 	}
 
 	public GifRecorder saveAs( String theFileName ) {
@@ -284,8 +309,18 @@ import processing.event.KeyEvent;
 		for ( int[] frame : frames ) {
 			BufferedImage img = new BufferedImage( width , height , BufferedImage.TYPE_INT_RGB );
 			img.setRGB( 0 , 0 , width , height , frame , 0 , width );
+			BufferedImage after;
+			if ( scale != 1.0f ) {
+				after = new BufferedImage( ( int ) ( width * scale ) , ( int ) ( height * scale ) , BufferedImage.TYPE_INT_RGB );
+				AffineTransform at = new AffineTransform( );
+				at.scale( scale , scale );
+				AffineTransformOp scaleOp = new AffineTransformOp( at , AffineTransformOp.TYPE_BILINEAR );
+				after = scaleOp.filter( img , after );
+			} else {
+				after = img;
+			}
 			try {
-				writer.writeToSequence( img );
+				writer.writeToSequence( after );
 			} catch ( IOException e ) {
 				e.printStackTrace( );
 			}

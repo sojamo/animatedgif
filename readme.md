@@ -6,24 +6,24 @@ A library for the programming environment [processing](http://processing.org) to
 ## Contents 
 
   * [Download](#download)
-  * [Installation](#install)
-  * [Initialization](#init)
+  * [Installation](#installation)
+  * [Initialization](#initialization)
   * [API](#api)
     * [Constructor](#constructor)
-    * [Setter and Getter](#setget)
+    * [Setter and Getter](#setter-and-getter)
     * [Control](#control)    
     * [Others](#others)
   * [Example](#example)
   * [GifSequenceWriter](#gifsequencewriter)
-  
+
 
 ## <a name"download"></a>Download
 Download the animatedgif library from the [releases](https://github.com/sojamo/animatedgif/releases) section of this repository.
 
-## <a name"install"></a>Installation
+## <a name"installation"></a>Installation
 unzip the zip file that you downloaded from above, then place the animatedgif folder into the libraries folder inside Processing's sketchbook folder. Where is the sketchbook folder? For osx users this folder by default is located at ~/Documents/Processing/libraries. For windows users this folder is probably located at c:/My Documents/Processing/libraries also see this [tutorial](http://www.learningprocessing.com/tutorials/libraries/). After putting the library into the libraries folder, restart processing to activate the library.
 
-## <a name"init"></a>Initialization
+## <a name"initialization"></a>Initialization
 Initialize a GifRecorder by creating a new instance of GifRecorder, the recorder automatically attaches itself to the tail of your draw procedure so that it can record the screen when instructed to do so. 
 
 
@@ -41,7 +41,7 @@ Initialize a GifRecorder by creating a new instance of GifRecorder, the recorder
 ```
 
 
-## <a name"install"></a>API
+## <a name"api"></a>API
 
 ### <a name"constructor"></a>Constructor
 Create a new GifRecorder instance
@@ -52,7 +52,7 @@ Create a new GifRecorder instance
 ```
 
 
-### <a name"setget"></a>Setter and Getter
+### <a name"setter-and-getter"></a>Setter and Getter
 Use the following setter and getter functions to customize the seetings of a gif recording session.
 
 #### Duration

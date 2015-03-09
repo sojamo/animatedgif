@@ -3,14 +3,27 @@
 
 A library for the programming environment [processing](http://processing.org) to record and save animated gifs.
 
+## Contents 
 
-## Download
+  * [Download](#download)
+  * [Installation](#install)
+  * [Initialization](#init)
+  * [API](#api)
+    * [Constructor](#constructor)
+    * [Setter and Getter](#setget)
+    * [Control](#control)    
+    * [Others](#others)
+  * [Example](#example)
+  * [GifSequenceWriter](#gifsequencewriter)
+  
+
+## <a name"download"></a>Download
 Download the animatedgif library from the [releases](https://github.com/sojamo/animatedgif/releases) section of this repository.
 
-## Installation
+## <a name"install"></a>Installation
 unzip the zip file that you downloaded from above, then place the animatedgif folder into the libraries folder inside Processing's sketchbook folder. Where is the sketchbook folder? For osx users this folder by default is located at ~/Documents/Processing/libraries. For windows users this folder is probably located at c:/My Documents/Processing/libraries also see this [tutorial](http://www.learningprocessing.com/tutorials/libraries/). After putting the library into the libraries folder, restart processing to activate the library.
 
-## Initialization
+## <a name"init"></a>Initialization
 Initialize a GifRecorder by creating a new instance of GifRecorder, the recorder automatically attaches itself to the tail of your draw procedure so that it can record the screen when instructed to do so. 
 
 
@@ -28,10 +41,10 @@ Initialize a GifRecorder by creating a new instance of GifRecorder, the recorder
 ```
 
 
-## API
+## <a name"install"></a>API
 
-### Constructor
-Create a new instance of a GifRecorder
+### <a name"constructor"></a>Constructor
+Create a new GifRecorder instance
 
 ```java
 
@@ -39,8 +52,8 @@ Create a new instance of a GifRecorder
 ```
 
 
-### Setter and Getter
-Use the following setter and getter function to customize the seetings of a gif recording.
+### <a name"setget"></a>Setter and Getter
+Use the following setter and getter functions to customize the seetings of a gif recording session.
 
 #### Duration
 Set the duration of a recording session in milliseconds. When `gif.record()` is called, the length of the recording will correspond to the duration set with `gif.setDuration(int)`
@@ -52,7 +65,7 @@ Set the duration of a recording session in milliseconds. When `gif.record()` is 
 ```
 
 #### File Name
-Set the filename under which an animated gif will be saved, by default gifs will be saved into the sketchfolder if not folder is specified. The GifRecorder does add a timestamp to the filename so that more than one gifs can be saved under the same name, differentiated by the timestamp suffix.
+Set the filename under which an animated gif will be saved, by default gifs will be saved into the sketch folder if no other folder is specified. The GifRecorder does add a timestamp to the filename so that more than one gifs can be saved under the same name, differentiated by the timestamp suffix.
 
 ```java
 
@@ -107,7 +120,7 @@ Set the loop status of the currently recorded animated gif
 	gif.isLoop(); // returns a boolean
 ```
 
-### Control
+### <a name"control"></a>Control
 Use the following commands to control the and save gif recordings.
 
 #### add
@@ -178,7 +191,7 @@ Save the current gif recording
 
 
 
-### Others
+### <a name"others"></a>Others
 
 #### Settings
 Request the state of current settings
@@ -211,9 +224,9 @@ Use a Timestamp as a prefix for recorded and saved gifs to avoid overriding, thi
 ```
 
 
-And some example code which you can also find inside the examples folder that comes with the library.
 
-## Example
+## <a name"example"></a>Example
+And some example code which you can also find inside the examples folder that comes with the library.
 
 ```java
 	import sojamo.animatedgif.*;
@@ -248,9 +261,9 @@ And some example code which you can also find inside the examples folder that co
 ```
 
 
-## GifSequenceWriter.java
+## <a name"gifsequencewriter"></a>GifSequenceWriter.java
 
-The GifSequenceWriter.java code is created by Elliot Kroo on 2009-04-25 [link](http://elliot.kroo.net/software/java/GifSequenceWriter/)
+The GifSequenceWriter.java code was created by Elliot Kroo [link](http://elliot.kroo.net/software/java/GifSequenceWriter/)
 
 
 _9 March 2015_

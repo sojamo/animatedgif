@@ -3,7 +3,7 @@
   <groupId>sojamo.midimapper</groupId>
   <artifactId>animatedgif</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.1</version>
+  <version>0.2.1</version>
   <name>animatedgif</name>
   <description>an animated gif library to save single frames into an animation.</description>
   <properties>

@@ -38,10 +38,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import javax.imageio.stream.FileImageOutputStream;
 
 import processing.core.PApplet;
 import processing.event.KeyEvent;
+
 
 @SuppressWarnings( { "rawtypes" , "unchecked" } ) public class GifRecorder {
 
@@ -76,8 +78,8 @@ import processing.event.KeyEvent;
 		papplet = theParent;
 		papplet.registerMethod( "draw" , this );
 		papplet.registerMethod( "keyEvent" , this );
-		width = papplet.getWidth( );
-		height = papplet.getHeight( );
+		width = papplet.width;
+		height = papplet.height;
 		frames = new ArrayList< int[] >( );
 		setFileName( papplet.sketchPath( "tmp.gif" ) );
 		welcome( );

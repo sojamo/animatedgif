@@ -6,24 +6,24 @@
   <version>0.1.1</version>
   <name>animatedgif</name>
   <description>an animated gif library to save single frames into an animation.</description>
-	<properties>
-		<jdk.version>1.7</jdk.version>
-	</properties>
- 	
- 	<dependencies>
+  <properties>
+      <jdk.version>1.7</jdk.version>
+  </properties>
+
+  <dependencies>
  		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency> 
-      		<groupId>org.processing</groupId> 
-      		<artifactId>papplet</artifactId> 
-      		<version>${java.version}</version> 
-      		<scope>system</scope> 
-      		<systemPath>${user.home}/Documents/workspace/libs/p5_2.2.1/core.jar</systemPath> 
-    	</dependency> 
+		<dependency>
+      		<groupId>org.processing</groupId>
+      		<artifactId>papplet</artifactId>
+      		<version>${java.version}</version>
+      		<scope>system</scope>
+      		<systemPath>${user.home}/Documents/code/resources/processing/core.jar</systemPath>
+    	</dependency>
 	</dependencies>
 
 	<build>

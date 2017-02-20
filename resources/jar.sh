@@ -1,4 +1,11 @@
-cd $HOME/Documents/workspace/animatedgif/target/classes
-jar cf ../animatedgif.jar .
-cp ../animatedgif.jar $HOME/Documents/Processing/libraries/animatedgif/library
-echo "animatedgif compiled on $(date)"
+#!/bin/bash
+echo "Creating jar file for $1"
+cd $2
+{ mvn compile; } &
+wait
+echo "done mvn $2"
+pwd
+cd $2/target/classes
+jar cf ../$1.jar .
+cp ../$1.jar $HOME/Documents/Processing/libraries/$1/library
+echo "$1 compiled on $(date)"
